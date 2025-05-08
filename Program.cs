@@ -93,19 +93,19 @@ class Program
                     }
                     break;
 
-                case 2:
+                case 2: // saída espectador
 
                     break;
 
-                case 3:
+                case 3: // Consultar ingressos disponíveis
 
                     break;
 
-                case 4:
+                case 4: // Exibir resumo do evento
 
                     break;
 
-                case 5:
+                case 5: // Listar todos os espectadores presentes
 
                     break;
 
