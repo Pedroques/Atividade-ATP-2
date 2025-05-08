@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade 2\\Atividade 2.csproj": {}
+    "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade-ATP-2\\Atividade 2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade 2\\Atividade 2.csproj": {
+    "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade-ATP-2\\Atividade 2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade 2\\Atividade 2.csproj",
+        "projectUniqueName": "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade-ATP-2\\Atividade 2.csproj",
         "projectName": "Atividade 2",
-        "projectPath": "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade 2\\Atividade 2.csproj",
+        "projectPath": "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade-ATP-2\\Atividade 2.csproj",
         "packagesPath": "C:\\Users\\joaok\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade 2\\obj\\",
+        "outputPath": "C:\\Users\\joaok\\OneDrive\\Área de Trabalho\\projetos facul\\Algoritmo e tecnica (ATP)\\Trabalho Dupla\\Atividade-ATP-2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joaok\\AppData\\Roaming\\NuGet\\NuGet.Config"
