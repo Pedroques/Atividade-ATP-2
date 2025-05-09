@@ -15,7 +15,7 @@ considerando a capacidade máxima e o número de entradas registradas nos vetore
 
 5. Listar todos os espectadores presentes: 
 
-exibir os dados (nome, idade, número do  ingresso e tipo de ingresso) de todos os espectadores registrados nos vetores,
+exibir os dados (nome, idade, número do ingresso e tipo de ingresso) de todos os espectadores registrados nos vetores,
 organizados por categoria.
 
 6. Sair */
@@ -25,15 +25,17 @@ class Program
     static void Main()
     {
         string tipo;
-        string[] ingVip = new string[3]; // [Quantidade máxima de ingressos]
-        string[] ingComum = new string[3]; // [Quantidade máxima de ingressos]
-        string[] ingPriori = new string[3]; // [Quantidade máxima de ingressos] 
-                                            // em ing... » Vão armazenar o nome de espectador 
-        string[] nome = new string[9]; // nome do espectador [quantidade de pessoas possíveis]
-        int[] idade = new int[9]; // idade espectador
-        int[] numeroIngresso = new int[9]; //n° do ingresso
+        string[] ingVip = new string[3]; // [Quantidade máxima de ingressos de cada tipo]
+        string[] ingComum = new string[3]; // [Quantidade máxima de ingressos de cada tipo]
+        string[] ingPriori = new string[3]; // [Quantidade máxima de ingressos de cada tipo] 
+        string[] nome = new string[9]; // nome do espectador que entrou [quantidade de pessoas possíveis]
+        int[] idade = new int[9]; // idade espectador que entrou
+        int[] numeroIngresso = new int[9]; //n° do ingresso do espectador que entrou
+        string[] tipoIngresso = new string[9]; // tipo do ingresso do espectador que entrou
         int opcao = 0, entradas = 0, contVip = 0, contComum = 0, contPriori = 0;
+        // opcao é a resposta do menu
         // entradas vai ser o índice para quantos espectadores já entraram que deve ser travado quando os contadores atingirem o Length de todos vetores ing
+        // em ing... » Vão armazenar o nome de espectador 
         // cont... é o índice para marcar as posições dentro dos respectivos vetores e também informa quantos já adquiriram o respectivo ingresso
 
         do
@@ -61,6 +63,7 @@ class Program
                                 contVip++;
                                 entradas++;
                                 ingVip[contVip] = nome[entradas];
+                                tipoIngresso[entradas] = "VIP";
                             }
                             else
                                 System.Console.WriteLine("Não há mais ingressos VIP disponíveis");
@@ -73,6 +76,7 @@ class Program
                                 contComum++;
                                 entradas++;
                                 ingComum[contComum] = nome[entradas];
+                                tipoIngresso[entradas] = "Comum";
                             }
                             else
                                 System.Console.WriteLine("Não há mais ingressos Comuns disponíveis");
@@ -85,6 +89,7 @@ class Program
                                 contPriori++;
                                 entradas++;
                                 ingPriori[contPriori] = nome[entradas];
+                                tipoIngresso[entradas] = "Prioritário";
                             }
                             else
                                 System.Console.WriteLine("Não há mais ingressos Prioritários disponíveis");
@@ -97,7 +102,9 @@ class Program
 
                     break;
 
-                case 3: // Consultar ingressos disponíveis
+                case 3: // Consultar ingressos disponíveis 
+
+                    System.Console.WriteLine("Ainda estão disponíveis:\nVips: " + (ingVip.Length - contVip) + "\nComuns: " + (ingComum.Length - contComum) + "\nPrioritários: " + (ingPriori.Length - contPriori));
 
                     break;
 
@@ -106,11 +113,12 @@ class Program
                     break;
 
                 case 5: // Listar todos os espectadores presentes
-
+                    for (int i = 0; i < nome.Length; i++)
+                        System.Console.WriteLine($"Espectador{i + 1}: {nome[i]}, {idade[i]} anos,  ingresso n° {numeroIngresso}, do tipo {tipoIngresso}");
                     break;
 
-                case 6:
-                    break; //Encerra o menu
+                case 6: //Encerra o menu
+                    break;
             }
 
         } while (opcao != 6);
