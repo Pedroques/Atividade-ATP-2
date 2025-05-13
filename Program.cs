@@ -120,6 +120,10 @@ class Program
 
                 case 6: //Encerra o menu
                     break;
+
+                default:
+                    System.Console.WriteLine("Insira uma opção válida!");
+                    break;
             }
 
         } while (opcao != 6);
