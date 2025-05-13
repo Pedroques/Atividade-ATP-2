@@ -40,7 +40,7 @@ class Program
 
         do
         {
-            System.Console.WriteLine("Escolha uma opção:\n1. Registrar entrada de um espectador\n2. Registrar saída de um espectador\nConsultar ingressos disponíveis\n4. Exibir resumo do evento\n5. Listar todos os espectadores presentes\n6. Sair");
+            System.Console.WriteLine("Escolha uma opção:\n1. Registrar entrada de um espectador\n2. Registrar saída de um espectador\n3. Consultar ingressos disponíveis\n4. Exibir resumo do evento\n5. Listar todos os espectadores presentes\n6. Sair");
             opcao = int.Parse(Console.ReadLine());
             switch (opcao)
             {
@@ -60,10 +60,10 @@ class Program
                         case "V":
                             if (contVip < ingVip.Length)
                             {
-                                contVip++;
-                                entradas++;
                                 ingVip[contVip] = nome[entradas];
                                 tipoIngresso[entradas] = "VIP";
+                                contVip++;
+                                entradas++;
                             }
                             else
                                 System.Console.WriteLine("Não há mais ingressos VIP disponíveis");
@@ -73,10 +73,10 @@ class Program
                         case "C":
                             if (contComum < ingComum.Length)
                             {
-                                contComum++;
-                                entradas++;
                                 ingComum[contComum] = nome[entradas];
                                 tipoIngresso[entradas] = "Comum";
+                                entradas++;
+                                contComum++;
                             }
                             else
                                 System.Console.WriteLine("Não há mais ingressos Comuns disponíveis");
@@ -86,10 +86,10 @@ class Program
                         case "P":
                             if (contPriori < ingPriori.Length)
                             {
-                                contPriori++;
-                                entradas++;
                                 ingPriori[contPriori] = nome[entradas];
                                 tipoIngresso[entradas] = "Prioritário";
+                                entradas++;
+                                contPriori++;
                             }
                             else
                                 System.Console.WriteLine("Não há mais ingressos Prioritários disponíveis");
@@ -113,8 +113,9 @@ class Program
                     break;
 
                 case 5: // Listar todos os espectadores presentes
-                    for (int i = 0; i < nome.Length; i++)
-                        System.Console.WriteLine($"Espectador{i + 1}: {nome[i]}, {idade[i]} anos,  ingresso n° {numeroIngresso}, do tipo {tipoIngresso}");
+                    for (int i = 0; i < entradas; i++)
+
+                        System.Console.WriteLine($"Espectador {i + 1}: {nome[i]}, {idade[i]} anos,  ingresso n° {numeroIngresso[i]}, do tipo {tipoIngresso[i]}");
                     break;
 
                 case 6: //Encerra o menu
