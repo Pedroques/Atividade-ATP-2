@@ -98,8 +98,54 @@ class Program
                     }
                     break;
 
-                case 2: // saída espectador
+                case 2: //Saída espectador
 
+                    //Solicitar número do ingresso
+                    System.Console.WriteLine("Insira o n° do seu ingresso");
+                    numeroIngresso[entradas] = int.Parse(Console.ReadLine()); //erro por ter [entradas]
+
+                    //Solicitar o tipo de ingresso
+                    System.Console.WriteLine("Insira o tipo do seu ingresso");
+                    tipoIngresso[entradas] = Console.ReadLine();//erro por ser tipoIngresso
+
+                    //Criar um for para percorrer, conferir se o numero do ingresso esta no tipo do ingresso
+                    //Diminuir entradas, diminuir contadores, nome recebe aspas, numero recebe zero (pessoa saindo)
+                    //Apagar o nome do espectador (ex.: nomeEspectador[i] = ""). Zerar o número do ingresso (ex.: numeroIngresso[i] = 0). Apagar o tipo de ingresso (ex.: tipoIngresso[i] = ""). (Opcional) Diminuir o contador de entradas, se o controle do seu programa exigir isso.
+
+                    //Fazer a busca no cadastro
+                    bool encontrado = false;
+                    
+                    for (int i = 0; i < entradas; i++)
+                    {
+                        //Verificar se o número e tipo de ingresso conferem
+                        if (numeroIngresso[i] == numeroIngresso && tipoIngresso[i] == tipo) //colocar os tipos (tipo == "V" && tipoIngresso[i] == "VIP") ||..
+                        {
+                            System.Console.WriteLine($"Ingresso encontrado para {nome[i]}.");
+
+                            //Função que libera o ingresso
+                            nome[i] = " ";
+                            numeroIngresso[i] = 0;
+                            tipoIngresso[i] = " ";
+
+                            System.Console.WriteLine("Ingresso liberado.");
+
+                            encontrado = true; //Marcar que foi encontado (função bool)
+                            break;
+                        }
+                    }
+
+                    if (!encontrado)
+                    {
+                        System.Console.WriteLine("Ingresso não encontrado.");
+                        return;
+                    }
+
+                    System.Console.WriteLine("\nSituação atual dos ingressos: ");
+
+                    for (int i = 0; i < entradas; i++)
+                    {
+                        System.Console.WriteLine($"Posição {i} - Nome: {nome[i]}, Número: {numeroIngresso[i]}, Tipo: {tipoIngresso[i]}");
+                    }
                     break;
 
                 case 3: // Consultar ingressos disponíveis 
@@ -108,7 +154,39 @@ class Program
 
                     break;
 
-                case 4: // Exibir resumo do evento
+                case 4:
+
+                    // Exibir resumo do evento: 
+                    // • Número total de espectadores presentes; - Usar contador entradas que e o indicie de espectadores (soma)
+                    // • Quantidade e percentual de espectadores por categoria; 
+                    // • Ingressos disponíveis por categoria - Verificar a quantidade maxima de cada um dos tipo de ingressos diponives;
+
+                    int totalPresentes = contVip + contComum + contPriori; 
+
+                    System.Console.WriteLine("\n===== RESUMO DO EVENTO =====");
+
+                    System.Console.WriteLine($"Número total de espectadores presentes: {totalPresentes}");
+
+                    if (totalPresentes > 0) //Verifica se há pelo menos um espectador presente
+                    {
+                        double percVip = (contVip * 100.0) / totalPresentes;
+                        double percComum = (contComum * 100.0) / totalPresentes;
+                        double percPriori = (contPriori * 100.0) / totalPresentes;
+
+                        System.Console.WriteLine("\nQuantidade e percentual por categoria:"); //Exibe os dados de quantidade e percentual
+                        System.Console.WriteLine($"VIP: {contVip} ({percVip:F2}%)");
+                        System.Console.WriteLine($"Comum: {contComum} ({percComum:F2}%)");
+                        System.Console.WriteLine($"Prioritário: {contPriori} ({percPriori:F2}%)");
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Nenhum espectador presente no momento.");
+                    }
+
+                    System.Console.WriteLine("\nIngressos disponíveis por categoria:"); //Mostra a quantidadede ingressos ainda disponíveis
+                    System.Console.WriteLine($"VIP: {ingVip.Length - contVip}");
+                    System.Console.WriteLine($"Comum: {ingComum.Length - contComum}");
+                    System.Console.WriteLine($"Prioritário: {ingPriori.Length - contPriori}");
 
                     break;
 
@@ -116,18 +194,22 @@ class Program
                     for (int i = 0; i < entradas; i++)
 
                         System.Console.WriteLine($"Espectador {i + 1}: {nome[i]}, {idade[i]} anos,  ingresso n° {numeroIngresso[i]}, do tipo {tipoIngresso[i]}");
+
                     break;
 
                 case 6: //Encerra o menu
+
+                    System.Console.WriteLine("Encerrando o programa. Obrigado por utilizar!");
+
                     break;
 
                 default:
+
                     System.Console.WriteLine("Insira uma opção válida!");
+
                     break;
             }
 
         } while (opcao != 6);
-
-
     }
 }
